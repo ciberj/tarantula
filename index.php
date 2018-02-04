@@ -72,12 +72,12 @@
 <div class="container-fluid">
   <!-- Content here -->
   <div class="row">
-    <div class="col-sm-5 cuadros">
+    <div class="col-sm-3 cuadros">
       
       <textarea class="area" id="productos" name="mensaje"   placeholder="Un producto por linea!"></textarea>
       <input id="btnBuscar" type="button"  value="Comparar"/>
     </div>
-    <div id="resultado" class="col-sm-5 cuadros">
+    <div id="resultado" class="col-sm-6 cuadros">
       Resultados de las búsquedas
       <br><br>
       
