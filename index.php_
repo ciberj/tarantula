@@ -1,0 +1,175 @@
+<?php
+header('Access-Control-Allow-Origin: *'); 
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style type="text/css">
+ 		.area { width: 49%;height:250px;display:inline;float:left }
+	</style>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script>
+		var varGlobal;
+		$(document).ready(function(){
+			$("#btnBuscar").click(function () {
+				texto=($("#productos").val());
+				texto=texto.split("\n");
+				var myJSON = JSON.stringify(texto);
+				console.log(myJSON);
+				buscarPvp(myJSON);
+
+			});
+
+		});
+		function grabarDatos(){
+
+			$.ajax({
+					data:  varGlobal,//parametros, //datos que se envian a traves de ajax
+					url:   'http://www.desarrollo.dev/api/grabar', //archivo que recibe la peticion
+					type:  'post', //método de envio
+					beforeSend: function () {
+							$("#resultado").html("Procesando, espere por favor...");
+					},
+					success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+							
+							$("#resultado").html("DATOS GRABADOS CORRECTAMENTE");
+							location.href = 'http://www.desarrollo.dev/api/datos.csv';
+							//window.open("api/datos.csv"); 
+
+
+						
+							
+					},
+					error: function(result) {
+                    alert("Error en llamada ajax");
+                }
+			
+			})};
+		
+		function buscarPvp(productos,comercio){
+			var parametros = {
+					"comercio" : "mediamarkt",
+					"urlBusqueda":'https://api.empathybroker.com/search/v1/query/mediamarkt/search?jsonCallback=angular.callbacks._0&lang=es&q=',
+					"productos" : productos
+					
+			};
+			$.ajax({
+					data:  parametros,//parametros, //datos que se envian a traves de ajax
+					url:   'http://www.desarrollo.dev/api/productos', //archivo que recibe la peticion
+					type:  'post', //método de envio
+					beforeSend: function () {
+							$("#resultado").html("Procesando, espere por favor...");
+					},
+					success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+							varGlobal = response;// guardamos el response por si lo queremos grabar.
+							var json = (JSON.parse(response));
+							var result="";
+							json.forEach(function(element) {
+								result= result+ element.producto + "     "+ element.pvp + "\n";
+							});
+							//console.log(json);
+							$("#resultado").html(result);
+						
+							
+					},
+					error: function(result) {
+                    alert("Error en llamada ajax");
+                }
+			});
+	
+		};	
+		/*function realizarBusqueda(){
+			alert($("#productos").val());
+		};*/
+	</script>
+</head>
+<body>
+
+<?php
+	include 'src/models/Mediamarkt.php';
+
+	echo "<h1> Búsqueda de productos </h1>";
+	$urlBusqueda='https://api.empathybroker.com/search/v1/query/mediamarkt/search?jsonCallback=angular.callbacks._0&lang=es&q=';
+	$producto='WVH30547EP';
+	$producto="KD49XE8096BAEP";
+	
+/*
+	$objeto = new src\models\Mediamarkt($urlBusqueda,$producto);
+	$objeto->buscarPvp();
+	echo $objeto->pvp;
+	echo '<br>';
+	echo $objeto->urlProducto;
+	if (!($objeto->encontrado)){
+		echo "no encontrado";
+	}
+*/
+	
+?>
+<br><br>
+<textarea class="area" id="productos" name="mensaje"   placeholder="Un producto por linea!"></textarea>
+<textarea class="area" id="resultado" name="mensaje"   placeholder="resultados busquedas"></textarea>
+
+<input id="btnBuscar" type="button"  value="Calcula"/>
+<input id="btnGrabar" type="button"  value="Grabar" onClick="grabarDatos();"/>
+<br><br>
+
+
+
+
+
+</body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script>
+	function realizaProceso(valorCaja1, valorCaja2){
+			var parametros = {
+					"valorCaja1" : valorCaja1,
+					"valorCaja2" : valorCaja2
+			};
+			$.ajax({
+					data:  parametros, //datos que se envian a traves de ajax
+					url:   'http://www.mediamarkt.es/?q=ue40mu6', //archivo que recibe la peticion
+					type:  'get', //método de envio
+					beforeSend: function () {
+							$("#resultado").html("Procesando, espere por favor...");
+					},
+					success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+							$("#resultado").html(response);
+							
+					},
+					error: function(result) {
+                    alert("Data not found");
+                }
+			});
+	}
+	</script>
+</head>
+<body>
+	
+
+
+
+
+	
+	<h1>Ejemplo de Ajax</h1>
+	<input type="button" href="javascript:;" onclick="realizaProceso($('#valor1').val(), $('#valor2').val());return false;" value="Calcula"/>
+
+<br/>
+Resultado: <span id="resultado">0</span>
+</body>
+</html> -->

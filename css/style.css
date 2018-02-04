@@ -1,0 +1,12 @@
+.cuadros{
+    border: 1px solid black;
+    background-color: rgb(193, 242, 248);
+    height: 250px;
+    margin: 25px;
+
+}
+
+.area { 
+    width: 100%;
+    height: 80%
+ }
