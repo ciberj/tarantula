@@ -54,6 +54,8 @@
                   $objCarrefour->buscarPvp();
                   $objCorte->buscarPvp();
 
+
+                  
                   $prod[0] = [
                       "comercio" => "mediamarkt",
                       "pvp" =>$objMediamarkt->pvp,
@@ -83,7 +85,7 @@
                   $respuesta["producto"]=$producto;
                   $respuesta["datos"]=$prod;
                   $total[]=$respuesta;
-                  sleep(0);
+                  
               }
               return  json_encode($total);
               

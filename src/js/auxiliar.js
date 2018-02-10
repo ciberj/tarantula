@@ -105,7 +105,7 @@ function mostrarDatos(datos){ // devuelve una tabla html
         tabla+='  <tr>    <td class="tg-yw4l">'+element.producto+'</td>';
 
         element.datos.forEach(function(e){
-            tabla+='<td class="tg-yw4l">'+e.pvp+'</td>';
+            tabla+='<td class="tg-yw4l">'+'<a href="'+e.urlProducto+'"'+'target="_blank">'+e.pvp+'</a>'+'</td>';
         });
         tabla+='</tr>';
             /*

@@ -48,7 +48,7 @@
 			        	
 			        	//echo  '<a href="'."http://carrefour.es".$element->href.'">'.$this->producto."</a>";
 			        	
-			        	$this->urlProducto=$element->href;
+			        	$this->urlProducto="http://www.carrefour.es".$element->href;
 			        	break;
 
 

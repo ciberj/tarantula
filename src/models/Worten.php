@@ -33,7 +33,7 @@
                     } else{
                         $this->pvp= $objHtml[0]->price;
                     
-                        $this->urlProducto = $objHtml[0]->url;
+                        $this->urlProducto = "http://www.worten.es".$objHtml[0]->url;
                         $this->encontrado=TRUE;
                     }
             }else{
