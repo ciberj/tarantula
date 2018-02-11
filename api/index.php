@@ -3,6 +3,7 @@
     include '../src/models/Worten.php';
     include '../src/models/Carrefour.php';
     include '../src/models/Elcorteingles.php';
+     include '../src/models/Juanlucas.php';
         
     use \Psr\Http\Message\ServerRequestInterface as Request;
     use \Psr\Http\Message\ResponseInterface as Response;
@@ -49,10 +50,13 @@
                   $objWorten = new src\models\Worten($producto);
                   $objCarrefour = new src\models\Carrefour($producto);
                   $objCorte = new src\models\Elcorteingles($producto);
+                  $objJuanlucas = new src\models\Juanlucas($producto);
                   $objMediamarkt->buscarPvp();
                   $objWorten->buscarPvp();
                   $objCarrefour->buscarPvp();
                   $objCorte->buscarPvp();
+                  $objJuanlucas->buscarPvp();
+                 
 
 
                   
@@ -81,6 +85,12 @@
                     "pvp" =>$objCorte->pvp,
                     "urlProducto" => $objCorte->urlProducto,
                     "encontrado"=> $objCorte->encontrado
+                 ];
+                 $prod[4] = [
+                    "comercio" => "JuanLucas",
+                    "pvp" =>$objJuanlucas->pvp,
+                    "urlProducto" => $objJuanlucas->urlProducto,
+                    "encontrado"=> $objJuanlucas->encontrado
                  ];
                   $respuesta["producto"]=$producto;
                   $respuesta["datos"]=$prod;

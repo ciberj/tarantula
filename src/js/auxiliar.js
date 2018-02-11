@@ -98,7 +98,7 @@ function mostrarDatos(datos){ // devuelve una tabla html
     tabla+='</style>';
     tabla+='<div class="tg-wrap"><table class="tg table table-condensed">';
 
-    tabla+='<tr><th class="tg-yw4l"></th><th class="tg-yw4l"><img src="/src/image/mediamarkt.gif"/></th><th class="tg-yw4l"><img src="/src/image/worten.gif"/></th><th class="tg-yw4l"><img src="/src/image/carrefour.gif"/></th><th class="tg-yw4l"><img src="/src/image/elcorteingles.gif"/></th></tr>';
+    tabla+='<tr><th class="tg-yw4l"></th><th class="tg-yw4l"><img src="/src/image/mediamarkt.gif"/></th><th class="tg-yw4l"><img src="/src/image/worten.gif"/></th><th class="tg-yw4l"><img src="/src/image/carrefour.gif"/></th><th class="tg-yw4l"><img src="/src/image/elcorteingles.gif"/></th><th class="tg-yw4l"><img src="/src/image/juanlucas.gif"/></th></tr>';
     
    
     json.forEach(function(element) {
