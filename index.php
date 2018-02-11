@@ -73,22 +73,16 @@
   <div class="row">
     <div class="col-sm-12 ">
       <span>Buscar en comercios</span>
-      <div class="form-check">
-       <input class="form-check-input micheck" type="checkbox" id="mediamart" value="mediamarkt">
-        <label class="form-check-label  etiqueta" for="mediamarkt">Mediamarkt</label>
-      </div>
-      <div class="form-check ">
-        <input class="form-check-input micheck" type="checkbox" id="worten" value="worten">
-        <label class="form-check-label  etiqueta" for="worten">worten</label>
-      </div>
-      <div class="form-check ">
-        <input class="form-check-input micheck" type="checkbox" id="carrefour" value="carrefour">
-        <label class="form-check-label  etiqueta" for="carrefour">carrefour</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input micheck" type="checkbox" id="elcorteingles" value="elcorteingles">
-        <label class="form-check-label  etiqueta" for="elcorteingles">El corte ingles</label>
-      </div>
+      <form>
+        <label class="checkbox-inline"><input type="checkbox" id="mediamarkt" checked value="">Mediamarkt</label>
+        <label class="checkbox-inline"><input type="checkbox" id="Worten" checked value="">Worten</label>
+        <label class="checkbox-inline"><input type="checkbox" id="Carrefour"  checked value="" >Carrefour</label>
+        <label class="checkbox-inline"><input type="checkbox" id="elcorteingles" checked value="" >El Corte Ingles</label>
+        
+          
+       
+      </form>
+      
       </div>
     </div>
   </div>
