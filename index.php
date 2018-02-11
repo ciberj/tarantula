@@ -47,17 +47,17 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">APP 1</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#">APP2</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          APP3
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Action</a>
@@ -70,6 +70,28 @@
 </nav>
 
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 ">
+      <span>Buscar en comercios</span>
+      <div class="form-check">
+       <input class="form-check-input micheck" type="checkbox" id="mediamart" value="mediamarkt">
+        <label class="form-check-label  etiqueta" for="mediamarkt">Mediamarkt</label>
+      </div>
+      <div class="form-check ">
+        <input class="form-check-input micheck" type="checkbox" id="worten" value="worten">
+        <label class="form-check-label  etiqueta" for="worten">worten</label>
+      </div>
+      <div class="form-check ">
+        <input class="form-check-input micheck" type="checkbox" id="carrefour" value="carrefour">
+        <label class="form-check-label  etiqueta" for="carrefour">carrefour</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input micheck" type="checkbox" id="elcorteingles" value="elcorteingles">
+        <label class="form-check-label  etiqueta" for="elcorteingles">El corte ingles</label>
+      </div>
+      </div>
+    </div>
+  </div>
   <!-- Content here -->
   <div class="row">
     <div class="col-sm-3 cuadros">

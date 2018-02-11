@@ -130,7 +130,7 @@
 
         
         
-        $datos = ($request->getParsedBody())['datos'];
+        $datos = $request->getParsedBody()['datos'];
         $total=json_decode($datos);
         
         
