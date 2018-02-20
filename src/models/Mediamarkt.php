@@ -4,7 +4,8 @@
 
     class Mediamarkt {
         private $urlProducto;
-        private $urlBusqueda='https://api.empathybroker.com/search/v1/query/mediamarkt/search?jsonCallback=angular.callbacks._0&lang=es&q=';
+        private $urlBusqueda='https://api.empathybroker.com/search/v1/query/mediamarkt/search?lang=es&q=';
+                              //https://api.empathybroker.com/search/v1/query/mediamarkt/search?lang=es&q=3ts976ba
         private $producto;
         private $pvp;
         private $fecha;
@@ -21,22 +22,25 @@
             $busqueda=$this->urlBusqueda.$this->producto;
             $htmlPvp= str_get_html(file_get_contents($busqueda));
             
-            $htmlPvp = substr($htmlPvp, 21, -1);
+          
             $htmlPvp=json_decode($htmlPvp);
-            $topTrends=$htmlPvp->topTrends;
             
-            if ($topTrends==null){
+            
+            if ($htmlPvp->content->numFound>0){ // hay una posible coincidencia
                 
                 $objHtml=$htmlPvp->content->docs;
-                    if ($objHtml==NULL){
-                        $this->encontrado=FALSE;
-                    } else{
+                //$spellchecked=$htmlPvp->content->spellchecked;
+                    if (!isset($htmlPvp->content->spellchecked)){ // coincidencia exacta hasta la busqueda, coletillas pueden ser distintas
+                    // aqui se podria devolver un array de productos.
                         $this->pvp= $objHtml[0]->price;
                     
                         $this->urlProducto = $objHtml[0]->url;
                         $this->encontrado=TRUE;
+                       
+                    } else{ // aproximación similar 
+                         $this->encontrado=FALSE;
                     }
-            }else{
+            }else{ // no se ha encontrado
                 $this->encontrado=false;
 
             }

@@ -54,8 +54,8 @@
                   $objMediamarkt->buscarPvp();
                   $objWorten->buscarPvp();
                   $objCarrefour->buscarPvp();
-                  $objCorte->buscarPvp();
-                  $objJuanlucas->buscarPvp();
+                  $objCorte->buscarPvp();/*
+                  $objJuanlucas->buscarPvp();*/
                  
 
 
@@ -69,29 +69,29 @@
                   $prod[1] = [
                     "comercio" => "worten",
                     "pvp" =>$objWorten->pvp,
-                    "urlProducto" => $objWorten->urlProducto,
+                    "urlProducto" => 'http://www.worten.es'.$objWorten->urlProducto,
                     "encontrado"=> $objWorten->encontrado
                   ];
-                  
+                 
                   $prod[2] = [
                     "comercio" => "Carrefour",
                     "pvp" =>$objCarrefour->pvp,
                     "urlProducto" => $objCarrefour->urlProducto,
                     "encontrado"=> $objCarrefour->encontrado
                  ];
-                 
+                  
                  $prod[3] = [
                     "comercio" => "CorteIngles",
                     "pvp" =>$objCorte->pvp,
                     "urlProducto" => $objCorte->urlProducto,
                     "encontrado"=> $objCorte->encontrado
-                 ];
+                 ];/*
                  $prod[4] = [
                     "comercio" => "JuanLucas",
                     "pvp" =>$objJuanlucas->pvp,
                     "urlProducto" => $objJuanlucas->urlProducto,
                     "encontrado"=> $objJuanlucas->encontrado
-                 ];
+                 ];*/
                   $respuesta["producto"]=$producto;
                   $respuesta["datos"]=$prod;
                   $total[]=$respuesta;
